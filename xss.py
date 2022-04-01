@@ -10,6 +10,8 @@ def main():
     with open(payload,"r") as f:
         payloads = f.readlines()
         for payload in payloads:
-            os.system("cat "+host+"| waybackurl | tee -a endpoint.txt ; cat endpoint.txt | qsreplace "+payload+"| tee -a "+output)
+            payload.replace('"','\\"')
+            print(payload)
+            os.system(" cat "+host+"| waybackurl | tee -a endpoint.txt ; cat endpoint.txt | qsreplace '"+payload+"' | tee -a "+output)
 if __name__== "__main__" :
     main()
