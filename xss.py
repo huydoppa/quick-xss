@@ -12,6 +12,6 @@ def main():
         for payload in payloads:
             payload.replace('"','\\"')
             print(payload)
-            os.system(" cat "+host+"| waybackurl | tee -a endpoint.txt ; cat endpoint.txt | qsreplace '"+payload+"' | tee -a "+output +";cat "+output+" | freq | tee -a possible_xss.txt")
+            os.system("cat "+host+"| waybackurl | tee -a endpoint.txt ; cat endpoint.txt | qsreplace '"+payload+"' | tee -a "+output +";cat "+output+" | freq | tee -a possible_xss.txt")
 if __name__== "__main__" :
     main()
